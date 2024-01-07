@@ -23,7 +23,7 @@ export default function PostForm() {
         if(!accessToken) {
             router.push("/login")
         }
-    }, [isLogged, router])
+    }, [router])
 
     const handleNewPost = async () => {
         try {
@@ -74,6 +74,8 @@ export default function PostForm() {
                 onChange={(e) => setContent(e.target.value)}/>
 
                 <button onClick={handleNewPost}>new post</button>
+
+                {error && <p style={{ color: 'red' }}>{error}</p>}
             </form>
 
         </div>
